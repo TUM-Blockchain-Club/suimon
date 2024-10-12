@@ -1,0 +1,367 @@
+[
+    {
+        "name": "Capy",
+        "type": ["Water"],
+        "rarity": ["Common"],
+        "description": "Loves to swim and play in water. It is very social and often found in groups. Capy is known for its calm and friendly nature.",
+        "stats": {
+            "hp": 35,
+            "attack": 55,
+            "defense": 40
+        },
+        "moves": [
+            {
+                "name": "Water Gun",
+                "power": 40,
+                "accuracy": 100
+            }
+        ],
+        "evolution": "Drago Sui"
+    },
+    {
+        "name": "Suimander",
+        "type": ["Fire"],
+        "rarity": ["Common"],
+        "description": "Its long body burns with a bright flame. Suimander is agile and quick. It can withstand high temperatures and loves basking in the sun or bathing in magma.",
+        "stats": {
+            "hp": 40,
+            "attack": 50,
+            "defense": 45
+        },
+        "moves": [
+            {
+                "name": "Flame Thrower",
+                "type": "Fire",
+                "power": 90,
+                "accuracy": 100
+            }
+        ],
+        "evolution": "Drago Sui"
+    },
+    {
+        "name": "Chickpea",
+        "type": ["Grass"],
+        "rarity": ["Common"],
+        "description": "It loves sprinting rapidly through grass fields in sunlight. Chickpea is resilient and can thrive in various environments. It has a vibrant green plumage that attracts the bugs that it eats.",
+        "stats": {
+            "hp": 45,
+            "attack": 60,
+            "defense": 50
+        },
+        "moves": [
+            {
+                "name": "Leaf Blade",
+                "power": 55,
+                "accuracy": 95
+            }
+        ],
+        "evolution": "Sui Snake"
+    },
+    {
+        "name": "Suiqer",
+        "type": ["Water"],
+        "rarity": ["Common"],
+        "description": "Excellent at diving and catching fish. Suiqer is playful and enjoys splashing around. It has a keen sense of direction and rarely gets lost, alerting its mother to its location with a distinctive squeak if it ever does.",
+        "stats": {
+            "hp": 30,
+            "attack": 40,
+            "defense": 35
+        },
+        "moves": [
+            {
+                "name": "Bubble Blast",
+                "power": 45,
+                "accuracy": 100
+            }
+        ],
+        "evolution": "Sui Snake"
+    },
+    {
+        "name": "Embermoth",
+        "type": ["Fire"],
+        "rarity": ["Common"],
+        "description": "Its wings glow with fiery patterns. Embermoth is nocturnal and is attracted to light. It can ignite its fur to ward off predators.",
+        "stats": {
+            "hp": 35,
+            "attack": 45,
+            "defense": 30
+        },
+        "moves": [
+            {
+                "name": "Ember Dust",
+                "power": 40,
+                "accuracy": 100
+            }
+        ],
+        "evolution": "Emberwing"
+    },
+    {
+        "name": "Starporcupine",
+        "type": ["Earth"],
+        "rarity": ["Rare"],
+        "description": "Its quills are as hard as rocks. Starporcupine is very defensive and uses its quills to protect itself. It can roll into a ball to move quickly.",
+        "stats": {
+            "hp": 55,
+            "attack": 50,
+            "defense": 70
+        },
+        "moves": [
+            {
+                "name": "Rock Spike",
+                "power": 50,
+                "accuracy": 95
+            }
+        ],
+        "evolution": "Terraquill"
+    },
+    {
+        "name": "Finflopper",
+        "type": ["Water"],
+        "rarity": ["Common"],
+        "description": "Finflopper is known for its playful nature. It can jump out of water to catch insects but often gets stuck on land. When out of its element, it flops around energetically, unable to move until it finds water again.",
+        "stats": {
+            "hp": 35,
+            "attack": 40,
+            "defense": 35
+        },
+        "moves": [
+            {
+                "name": "Splash",
+                "power": 30,
+                "accuracy": 100
+            }
+        ],
+        "evolution": "Finlord"
+    },
+    {
+        "name": "Sprouthen",
+        "type": ["Grass"],
+        "rarity": ["Common"],
+        "description": "It grows large broad leaves that can slap enemies with surprising force. Sprouthen is very resilient and can regrow its leaves quickly. It thrives in sunny environments.",
+        "stats": {
+            "hp": 45,
+            "attack": 40,
+            "defense": 45
+        },
+        "moves": [
+            {
+                "name": "Leaf Punch",
+                "power": 45,
+                "accuracy": 95
+            }
+        ],
+        "evolution": "Florapin"
+    },
+    {
+        "name": "Grasshopper",
+        "type": ["Grass"],
+        "rarity": ["Common"],
+        "description": "Grasshopper is very agile and can evade attacks easily. It feeds on leaves and plants, but enjoys hunting other Suimon for the thrill of the chase.",
+        "stats": {
+            "hp": 35,
+            "attack": 50,
+            "defense": 35
+        },
+        "moves": [
+            {
+                "name": "Jump Kick",
+                "power": 40,
+                "accuracy": 100
+            }
+        ],
+        "evolution": "Florapin"
+    },
+    {
+        "name": "Buzzbee",
+        "type": ["Grass"],
+        "rarity": ["Common"],
+        "description": "It collects nectar to make honey. Buzzbee is very industrious and works tirelessly. It has a strong sense of community and protects its hive.",
+        "stats": {
+            "hp": 40,
+            "attack": 45,
+            "defense": 40
+        },
+        "moves": [
+            {
+                "name": "Swarm",
+                "power": 40,
+                "accuracy": 100
+            }
+        ],
+        "evolution": "Florapin"
+    },
+    {
+        "name": "Flickerwing",
+        "type": ["Fire"],
+        "rarity": ["Rare"],
+        "description": "Its wings flicker with dazzling light that absorbs luminescence from light sources. Flickerwing is very delicate and shy in nature, preferring to be solitary as long is it has a heat source nearby.",
+        "stats": {
+            "hp": 50,
+            "attack": 65,
+            "defense": 55
+        },
+        "moves": [
+            {
+                "name": "Overheat",
+                "power": 60,
+                "accuracy": 90
+            }
+        ],
+        "evolution": "Emberwing"
+    },
+    {
+        "name": "Quitten",
+        "type": ["Earth"],
+        "rarity": ["Common"],
+        "description": "Its whiskers can sense vibrations in the ground. Quitten is very curious and agile. It can dig small holes to hide or find food.",
+        "stats": {
+            "hp": 35,
+            "attack": 40,
+            "defense": 35
+        },
+        "moves": [
+            {
+                "name": "Scratch",
+                "power": 40,
+                "accuracy": 100
+            }
+        ],
+        "evolution": "Terraquill"
+    },
+    {
+        "name": "Sui Snake",
+        "type": ["Water"],
+        "rarity": ["Epic"],
+        "description": "It can move swiftly in water and on land. Sui Snake is very stealthy and can blend into seaweed patches as it hunts. It has a venomous bite that can paralyze its prey.",
+        "stats": {
+            "hp": 70,
+            "attack": 80,
+            "defense": 75
+        },
+        "moves": [
+            {
+                "name": "Swift Sneak",
+                "power": 110,
+                "accuracy": 80
+            }
+        ],
+        "prevolutions": ["Chickpea", "Diver Duck"],
+        "evolution": "Finlord"
+    },
+    {
+        "name": "Emberwing",
+        "type": ["Fire"],
+        "rarity": ["Epic"],
+        "description": "Its wings crackle with burning energy. Emberwing is very fast and can create small firestorms. It is known for its fierce and aggressive nature.",
+        "stats": {
+            "hp": 70,
+            "attack": 90,
+            "defense": 60
+        },
+        "moves": [
+            {
+                "name": "Ember Blast",
+                "power": 100,
+                "accuracy": 90
+            }
+        ],
+        "prevolutions": ["Embermoth", "Flickerwing"]
+    },
+    {
+        "name": "Drago Sui",
+        "type": ["Fire"],
+        "rarity": ["Epic"],
+        "description": "It has immense power and wisdom. Drago Sui is revered by many for its strength. It can create powerful tremors and cause eruptions, but usually spends its time sleeping in active volcanos.",
+        "stats": {
+            "hp": 57,
+            "attack": 72,
+            "defense": 62
+        },
+        "moves": [
+            {
+                "name": "Magma Burst",
+                "power": 100,
+                "accuracy": 80
+            }
+        ],
+        "prevolutions": ["Capy", "Suimander"]
+    },
+    {
+        "name": "Terraquill",
+        "type": ["Earth"],
+        "rarity": ["Rare"],
+        "description": "It can dig massive ravines around its opponents to attack. Terraquill's tail is very sturdy and can withstand great force. It uses the densely packed quill-like fur on its tail to sense tremors and protect its back as it digs.",
+        "stats": {
+            "hp": 60,
+            "attack": 70,
+            "defense": 80
+        },
+        "moves": [
+            {
+                "name": "Rockslide",
+                "power": 80,
+                "accuracy": 90
+            }
+        ],
+        "prevolutions": ["Starporcupine", "Quitten"],
+        "evolution": "Floraking"
+    },
+    {
+        "name": "Florapin",
+        "type": ["Grass"],
+        "rarity": ["Epic"],
+        "description": "It can fly great distances with its leaf-like wings. Florapin is very agile and can evade attacks easily. It has a gentle nature but can be fierce when threatened.",
+        "stats": {
+            "hp": 80,
+            "attack": 100,
+            "defense": 90
+        },
+        "moves": [
+            {
+                "name": "Razor Leaf",
+                "power": 110,
+                "accuracy": 90
+            }
+        ],
+        "prevolutions": ["Sprouthen", "Grasshopper", "Buzzbee"],
+        "evolution": "Floraking"
+    },
+    {
+        "name": "Floraking",
+        "type": ["Grass"],
+        "rarity": ["Legendary"],
+        "description": "It commands the flora and fauna, even the most wild of beasts submitting to its rule. Floraking is very wise and respected by all. It can create lush forests and fertile lands wherever it goes.",
+        "stats": {
+            "hp": 90,
+            "attack": 110,
+            "defense": 100
+        },
+        "moves": [
+            {
+                "name": "Leaf Storm",
+                "power": 140,
+                "accuracy": 90
+            }
+        ],
+        "prevolutions": ["Florapin", "Terraquill"]
+    },
+    {
+        "name": "Finlord",
+        "type": ["Water"],
+        "rarity": ["Legendary"],
+        "description": "With origins as a small guppy, it rules the oceans benevolently despite its titanic form. Finlord is very powerful and can create massive waves. It is revered by all sea creatures and commands respect.",
+        "stats": {
+            "hp": 85,
+            "attack": 95,
+            "defense": 90
+        },
+        "moves": [
+            {
+                "name": "Tsunami Surge",
+                "power": 110,
+                "accuracy": 80
+            }
+        ],
+        "prevolutions": ["Finflopper", "Sui Snake"]
+    }
+]
