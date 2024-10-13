@@ -1,0 +1,15 @@
+syntax = "proto3";
+package proof_generation;
+
+// [DART-SIGNAL]
+message ProofGenerationInput {
+  uint64 a = 1;
+  uint64 b = 2;
+}
+
+// [RUST-SIGNAL]
+message ProofGenerationOutput {
+  bytes vk_bytes = 1;
+  bytes proof_bytes = 2;
+  bytes public_inputs_bytes = 3;
+}

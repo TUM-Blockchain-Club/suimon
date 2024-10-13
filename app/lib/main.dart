@@ -4,12 +4,14 @@ import 'package:suimon/repositories/repositories.dart';
 import 'package:suimon/blocs/blocs.dart';
 import 'package:suimon/views/app_home/app_home.dart';
 import 'package:suimon/views/app_login/app_login.dart';
+import 'package:rinf/rinf.dart';
+import './messages/all.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-
+  await initializeRust(assignRustSignal);
   // Log bloc events
   Bloc.observer = DefaultBlocObserver();
 
