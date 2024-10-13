@@ -3,6 +3,8 @@
         "name": "Capy",
         "type": ["Water"],
         "rarity": ["Common"],
+        "difficulty": 1,
+        "maxMintPerEpoch": 14,
         "description": "Loves to swim and play in water. It is very social and often found in groups. Capy is known for its calm and friendly nature.",
         "stats": {
             "hp": 35,
@@ -16,12 +18,15 @@
                 "accuracy": 100
             }
         ],
-        "evolution": "Drago Sui"
+        "fusionTarget": "Drago Sui",
+        "fusionPartners": ["Suimander"]
     },
     {
         "name": "Suimander",
         "type": ["Fire"],
-        "rarity": ["Common"],
+        "rarity": ["Rare"],
+        "difficulty": 2,
+        "maxMintPerEpoch": 5,
         "description": "Its long body burns with a bright flame. Suimander is agile and quick. It can withstand high temperatures and loves basking in the sun or bathing in magma.",
         "stats": {
             "hp": 40,
@@ -31,17 +36,19 @@
         "moves": [
             {
                 "name": "Flame Thrower",
-                "type": "Fire",
                 "power": 90,
                 "accuracy": 100
             }
         ],
-        "evolution": "Drago Sui"
+        "fusionTarget": "Drago Sui",
+        "fusionPartners": ["Capy"]
     },
     {
         "name": "Chickpea",
         "type": ["Grass"],
         "rarity": ["Common"],
+        "difficulty": 1,
+        "maxMintPerEpoch": 12,
         "description": "It loves sprinting rapidly through grass fields in sunlight. Chickpea is resilient and can thrive in various environments. It has a vibrant green plumage that attracts the bugs that it eats.",
         "stats": {
             "hp": 45,
@@ -55,12 +62,15 @@
                 "accuracy": 95
             }
         ],
-        "evolution": "Sui Snake"
+        "fusionTarget": "Sui Snake",
+        "fusionPartners": ["Suiqer"]
     },
     {
         "name": "Suiqer",
         "type": ["Water"],
         "rarity": ["Common"],
+        "difficulty": 2,
+        "maxMintPerEpoch": 8,
         "description": "Excellent at diving and catching fish. Suiqer is playful and enjoys splashing around. It has a keen sense of direction and rarely gets lost, alerting its mother to its location with a distinctive squeak if it ever does.",
         "stats": {
             "hp": 30,
@@ -74,12 +84,15 @@
                 "accuracy": 100
             }
         ],
-        "evolution": "Sui Snake"
+        "fusionTarget": "Sui Snake",
+        "fusionPartners": ["Chickpea"]
     },
     {
         "name": "Embermoth",
         "type": ["Fire"],
         "rarity": ["Common"],
+        "difficulty": 3,
+        "maxMintPerEpoch": 7,
         "description": "Its wings glow with fiery patterns. Embermoth is nocturnal and is attracted to light. It can ignite its fur to ward off predators.",
         "stats": {
             "hp": 35,
@@ -93,12 +106,15 @@
                 "accuracy": 100
             }
         ],
-        "evolution": "Emberwing"
+        "fusionTarget": "Emberwing",
+        "fusionPartners": ["Flickerwing"]
     },
     {
         "name": "Starporcupine",
         "type": ["Earth"],
         "rarity": ["Rare"],
+        "difficulty": 4,
+        "maxMintPerEpoch": 3,
         "description": "Its quills are as hard as rocks. Starporcupine is very defensive and uses its quills to protect itself. It can roll into a ball to move quickly.",
         "stats": {
             "hp": 55,
@@ -112,12 +128,15 @@
                 "accuracy": 95
             }
         ],
-        "evolution": "Terraquill"
+        "fusionTarget": "Terraquill",
+        "fusionPartners": ["Quitten"]
     },
     {
         "name": "Finflopper",
         "type": ["Water"],
         "rarity": ["Common"],
+        "difficulty": 1,
+        "maxMintPerEpoch": 20,
         "description": "Finflopper is known for its playful nature. It can jump out of water to catch insects but often gets stuck on land. When out of its element, it flops around energetically, unable to move until it finds water again.",
         "stats": {
             "hp": 35,
@@ -131,12 +150,15 @@
                 "accuracy": 100
             }
         ],
-        "evolution": "Finlord"
+        "fusionTarget": "Finlord",
+        "fusionPartners": ["Sui Snake"]
     },
     {
         "name": "Sprouthen",
         "type": ["Grass"],
         "rarity": ["Common"],
+        "difficulty": 2,
+        "maxMintPerEpoch": 18,
         "description": "It grows large broad leaves that can slap enemies with surprising force. Sprouthen is very resilient and can regrow its leaves quickly. It thrives in sunny environments.",
         "stats": {
             "hp": 45,
@@ -150,12 +172,15 @@
                 "accuracy": 95
             }
         ],
-        "evolution": "Florapin"
+        "fusionTarget": "Florapin",
+        "fusionPartners": ["Grasshopper", "Buzzbee"]
     },
     {
         "name": "Grasshopper",
         "type": ["Grass"],
         "rarity": ["Common"],
+        "difficulty": 3,
+        "maxMintPerEpoch": 5,
         "description": "Grasshopper is very agile and can evade attacks easily. It feeds on leaves and plants, but enjoys hunting other Suimon for the thrill of the chase.",
         "stats": {
             "hp": 35,
@@ -169,12 +194,15 @@
                 "accuracy": 100
             }
         ],
-        "evolution": "Florapin"
+        "fusionTarget": "Florapin",
+        "fusionPartners": ["Sprouthen", "Buzzbee"]
     },
     {
         "name": "Buzzbee",
         "type": ["Grass"],
         "rarity": ["Common"],
+        "difficulty": 2,
+        "maxMintPerEpoch": 14,
         "description": "It collects nectar to make honey. Buzzbee is very industrious and works tirelessly. It has a strong sense of community and protects its hive.",
         "stats": {
             "hp": 40,
@@ -188,12 +216,15 @@
                 "accuracy": 100
             }
         ],
-        "evolution": "Florapin"
+        "fusionTarget": "Florapin",
+        "fusionPartners": ["Sprouthen", "Grasshopper"]
     },
     {
         "name": "Flickerwing",
         "type": ["Fire"],
         "rarity": ["Rare"],
+        "difficulty": 3,
+        "maxMintPerEpoch": 3,
         "description": "Its wings flicker with dazzling light that absorbs luminescence from light sources. Flickerwing is very delicate and shy in nature, preferring to be solitary as long is it has a heat source nearby.",
         "stats": {
             "hp": 50,
@@ -207,12 +238,15 @@
                 "accuracy": 90
             }
         ],
-        "evolution": "Emberwing"
+        "fusionTarget": "Emberwing",
+        "fusionPartners": ["Embermoth"]
     },
     {
         "name": "Quitten",
         "type": ["Earth"],
         "rarity": ["Common"],
+        "difficulty": 1,
+        "maxMintPerEpoch": 9,
         "description": "Its whiskers can sense vibrations in the ground. Quitten is very curious and agile. It can dig small holes to hide or find food.",
         "stats": {
             "hp": 35,
@@ -226,12 +260,15 @@
                 "accuracy": 100
             }
         ],
-        "evolution": "Terraquill"
+        "fusionTarget": "Terraquill",
+        "fusionPartners": ["Starporcupine"]
     },
     {
         "name": "Sui Snake",
         "type": ["Water"],
         "rarity": ["Epic"],
+        "difficulty": 5,
+        "maxMintPerEpoch": 1,
         "description": "It can move swiftly in water and on land. Sui Snake is very stealthy and can blend into seaweed patches as it hunts. It has a venomous bite that can paralyze its prey.",
         "stats": {
             "hp": 70,
@@ -245,13 +282,16 @@
                 "accuracy": 80
             }
         ],
-        "prevolutions": ["Chickpea", "Diver Duck"],
-        "evolution": "Finlord"
+        "fusionMaterial": ["Chickpea", "Suiqer"],
+        "fusionTarget": "Finlord",
+        "fusionPartners": ["Finflopper"]
     },
     {
         "name": "Emberwing",
         "type": ["Fire"],
         "rarity": ["Epic"],
+        "difficulty": 6,
+        "maxMintPerEpoch": 1,
         "description": "Its wings crackle with burning energy. Emberwing is very fast and can create small firestorms. It is known for its fierce and aggressive nature.",
         "stats": {
             "hp": 70,
@@ -265,12 +305,14 @@
                 "accuracy": 90
             }
         ],
-        "prevolutions": ["Embermoth", "Flickerwing"]
+        "fusionMaterial": ["Embermoth", "Flickerwing"]
     },
     {
         "name": "Drago Sui",
         "type": ["Fire"],
         "rarity": ["Epic"],
+        "difficulty": 7,
+        "maxMintPerEpoch": 1,
         "description": "It has immense power and wisdom. Drago Sui is revered by many for its strength. It can create powerful tremors and cause eruptions, but usually spends its time sleeping in active volcanos.",
         "stats": {
             "hp": 57,
@@ -284,12 +326,14 @@
                 "accuracy": 80
             }
         ],
-        "prevolutions": ["Capy", "Suimander"]
+        "fusionMaterial": ["Capy", "Suimander"]
     },
     {
         "name": "Terraquill",
         "type": ["Earth"],
-        "rarity": ["Rare"],
+        "rarity": ["Epic"],
+        "difficulty": 6,
+        "maxMintPerEpoch": 1,
         "description": "It can dig massive ravines around its opponents to attack. Terraquill's tail is very sturdy and can withstand great force. It uses the densely packed quill-like fur on its tail to sense tremors and protect its back as it digs.",
         "stats": {
             "hp": 60,
@@ -303,13 +347,16 @@
                 "accuracy": 90
             }
         ],
-        "prevolutions": ["Starporcupine", "Quitten"],
-        "evolution": "Floraking"
+        "fusionMaterial": ["Starporcupine", "Quitten"],
+        "fusionTarget": "Floraking",
+        "fusionPartners": ["Florapin"]
     },
     {
         "name": "Florapin",
         "type": ["Grass"],
         "rarity": ["Epic"],
+        "difficulty": 5,
+        "maxMintPerEpoch": 1,
         "description": "It can fly great distances with its leaf-like wings. Florapin is very agile and can evade attacks easily. It has a gentle nature but can be fierce when threatened.",
         "stats": {
             "hp": 80,
@@ -323,13 +370,16 @@
                 "accuracy": 90
             }
         ],
-        "prevolutions": ["Sprouthen", "Grasshopper", "Buzzbee"],
-        "evolution": "Floraking"
+        "fusionMaterial": ["Sprouthen", "Grasshopper", "Buzzbee"],
+        "fusionTarget": "Floraking",
+        "fusionPartners": ["Terraquill"]
     },
     {
         "name": "Floraking",
         "type": ["Grass"],
         "rarity": ["Legendary"],
+        "difficulty": 9,
+        "maxMintPerEpoch": 1,
         "description": "It commands the flora and fauna, even the most wild of beasts submitting to its rule. Floraking is very wise and respected by all. It can create lush forests and fertile lands wherever it goes.",
         "stats": {
             "hp": 90,
@@ -343,12 +393,14 @@
                 "accuracy": 90
             }
         ],
-        "prevolutions": ["Florapin", "Terraquill"]
+        "fusionMaterial": ["Florapin", "Terraquill"]
     },
     {
         "name": "Finlord",
         "type": ["Water"],
         "rarity": ["Legendary"],
+        "difficulty": 9,
+        "maxMintPerEpoch": 1,
         "description": "With origins as a small guppy, it rules the oceans benevolently despite its titanic form. Finlord is very powerful and can create massive waves. It is revered by all sea creatures and commands respect.",
         "stats": {
             "hp": 85,
@@ -362,6 +414,6 @@
                 "accuracy": 80
             }
         ],
-        "prevolutions": ["Finflopper", "Sui Snake"]
+        "fusionMaterial": ["Finflopper", "Sui Snake"]
     }
 ]
