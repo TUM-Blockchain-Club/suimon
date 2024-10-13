@@ -153,27 +153,26 @@ module suimon::suimon {
             if (check_max_per_epoch(clock, ctx)) {
             let suimonType = *vector::borrow(&table, monId);
             //check proof
-        if(check_proof(monId, clock, epoch, proof,nonce, r, ctx )){
-            let suimon = Suimon {
-                id: object::new(ctx),
-                name: suimonType.name,
-                description: suimonType.description,
-                image: suimonType.image,
-                max_mint_per_epoch: 10,
-                rarity: suimonType.rarity,
-                fusion_partners: suimonType.fusion_partners,
-                fusion_target: suimonType.fusion_target,
-            };
-            transfer::public_transfer(suimon, tx_context::sender(ctx));
-            
-            epoch.mints = epoch.mints + 1;
-        }
+            if(check_proof(monId, clock, epoch, proof,nonce, r, ctx )){
+                let suimon = Suimon {
+                    id: object::new(ctx),
+                    number: suimonType.number,
+                    name: suimonType.name,
+                    description: suimonType.description,
+                    image: suimonType.image,
+                    max_mint_per_epoch: 10,
+                    rarity: suimonType.rarity,
+                };
+                transfer::public_transfer(suimon, tx_context::sender(ctx));
+
+                epoch.mints = epoch.mints + 1;
+            }
         }
     }
     }
-    public fun evolve(fusionP1: Suimon, fusionP2: Suimon, proof: u64, ctx: &mut TxContext){
+    public fun evolve(fusionP1: Suimon, fusionP2: Suimon, suimonTable: &SuimonTable, ctx: &mut TxContext){
         let table = suimonTable.table;
-        let targetMetaData = *vector::borrow(&table, monID1);
+        let targetMetaData = *vector::borrow(&table, fusionP1.number);
         let fusion_target = targetMetaData.fusion_target;
         let fusion_partners = targetMetaData.fusion_partners;
         //call mint on each fusion partner
@@ -184,9 +183,10 @@ module suimon::suimon {
             // burn(partner,proof, ctx);
             i = i + 1;
         };
-        burn(monID, proof, ctx);
-        //call mint on fusion target
-        mint(fusion_target,proof, ctx);
+        burn(fusionP1, ctx);
+        burn(fusionP2, ctx);
+        // TODO call mint on fusion target
+        // mint(fusion_target, ctx);
     }
     fun battle(r: &Random , bp: &mut BattleParties, ctx: &mut TxContext){
         let mut generator = random::new_generator(r,ctx );
@@ -230,7 +230,7 @@ module suimon::suimon {
     public fun image(suimon: &Suimon): Url {
         suimon.image
     }
-    public entry fun burn(suimon: Suimon, proof:vector<u8>, ctx: &mut TxContext) {
+    public entry fun burn(suimon: Suimon, ctx: &mut TxContext) {
         let Suimon { id, .. } = suimon;
         object::delete(id);
     }
