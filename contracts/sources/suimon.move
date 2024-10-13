@@ -1,38 +1,33 @@
 module suimon::suimon {
     // Part 1: These imports are provided by default
-    use sui::object::{Self, UID};
-    use sui::transfer;
-    use sui::tx_context::{Self, TxContext };
     use std::string::{Self, String, utf8};
-    use std::vector;
     use sui::table;
     use sui::groth16;
     use sui::random::{Self, Random};
     use sui::package::{Self, Publisher};
     use std::debug;
     use sui::url::{Self, Url};
-    use std::option;
     use sui::clock::{Self,Clock};
     use 0x1::bcs;
 
-
-    public struct Suimon has key, store{
-        id: UID,
-        name: String,
-        description: String,
-        image: Url,
-        max_mint_per_epoch: u64,
+    public struct Suimon has key, store {
+        id: UID, // object ID
+        number: u64, // internal id
+        name: String, // Suimon name
+        description: String, // Suimon description
+        image: Url, // Suimon sprite
+        max_mint_per_epoch: u64, // Max amount of mints per epoch
         rarity: u8,
-        fusion_partners: vector<u64>,
-        fusion_target: u64,
     }
+
     public struct Suimons has key, store{
         // a data structure that holds all the suimons, it is needed for burning and minting through the evolve function
         id: UID,
-        monIDs: table::Table<u64,vector<Suimon>>,
         minted_per_epoch: table::Table<u64,u64>,
     }
+
     public struct SuimonType has copy, drop, store{
+        number: u64,
         name: String,
         description: String,
         image: Url,
@@ -40,16 +35,19 @@ module suimon::suimon {
         fusion_partners: vector<u64>,
         fusion_target: u64,
     }
+
     public struct SuimonTable has key, store {
         id: UID,
         table: vector<SuimonType>
     }
+
     public struct Epoch has key, store {
         id: UID,
         seed: u64,
         timestamp: u64,
         mints: u64,
     }
+
     public struct BattleParties has key, store {
         id: UID,
         monID1: Option<Suimon>,
@@ -57,15 +55,16 @@ module suimon::suimon {
         owner1: address,
         owner2: address,
     }
+
     public struct Evolution has key, store{
         id: UID,
         fusionP1: Suimon,
         fusionP2: Suimon,
         fusion_target: u64,
-        fusion_partners: vector<u64>,
     }
+
     fun init(ctx: &mut TxContext) {
-        let battleParties = BattleParties{
+        let battleParties = BattleParties {
             id: object::new(ctx),
             monID1: option::none(),
             monID2: option::none(),
@@ -75,10 +74,9 @@ module suimon::suimon {
         setupTable(ctx);
         transfer::public_share_object(battleParties);
     }
-
     
     // Part 2: struct definitions
-    fun check_proof(monId:u64,clock:&Clock,epoch: &Epoch, _proof_bytes: vector<u8>, nonce: u64, r: &Random, ctx: &mut TxContext): bool {
+    fun check_proof(monId: u64, clock: &Clock, epoch: &mut Epoch, _proof_bytes: vector<u8>, nonce: u64, r: &Random, ctx: &mut TxContext): bool {
         let mut generator = random::new_generator(r, ctx);
         let seed;
         if (epoch.timestamp + 86400000 < clock::timestamp_ms(clock)) {
@@ -86,9 +84,10 @@ module suimon::suimon {
         }
         else{
             seed = random::generate_u64(&mut generator);
+            epoch.seed = seed;
         };
-        let  nonce_bytes = bcs::to_bytes(&nonce);
-        let  monId_bytes = bcs::to_bytes(&monId);
+        let nonce_bytes = bcs::to_bytes(&nonce);
+        let monId_bytes = bcs::to_bytes(&monId);
         let seed_bytes = bcs::to_bytes(&seed);
         let mut input_bytes  = vector::empty<u8>();
         vector::append(&mut input_bytes, seed_bytes);
@@ -107,38 +106,35 @@ module suimon::suimon {
         let inputs = groth16::public_proof_inputs_from_bytes(input_bytes);
         groth16::verify_groth16_proof(&groth16::bn254(), &pvk, &inputs, &proof)
     }
+
     public fun setupTable(ctx: &mut TxContext) {
         let string: String = utf8(b"google");
         let image_link = sui::url::new_unsafe(string.to_ascii());
             
         let suimonTable = vector<SuimonType>[
-            SuimonType { name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
-            image:image_link, rarity: 132,
-            fusion_partners: vector::empty(),
+            SuimonType { number: 1, name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
+            image: image_link, rarity: 1,
+            fusion_partners: vector<u64>[],
             fusion_target: 0},
-            SuimonType { name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
-            image:image_link, rarity: 132,
-            fusion_partners: vector::empty(),
+            SuimonType { number: 2, name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
+            image: image_link, rarity: 1,
+            fusion_partners: vector<u64>[],
             fusion_target: 0},
-            SuimonType { name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
-            image:image_link, rarity: 132,
-            fusion_partners: vector::empty(),
+            SuimonType { number: 3, name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
+            image: image_link, rarity: 1,
+            fusion_partners: vector<u64>[],
             fusion_target: 0},
-            SuimonType { name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
-            image:image_link, rarity: 132,
-            fusion_partners: vector::empty(),
+            SuimonType { number: 4, name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
+            image: image_link, rarity: 1,
+            fusion_partners: vector<u64>[],
             fusion_target: 0},
         ];
+
         let table = SuimonTable {
             id: object::new(ctx),
             table: suimonTable,
         };
-        let suimons = Suimons {
-            id: object::new(ctx),
-            monIDs: table::new(ctx),
-            minted_per_epoch: table::new(ctx),
-        };
-        transfer::public_freeze_object(suimons); //idon't know whether that is the correct approach
+
         transfer::public_freeze_object(table)
     }
     public fun check_max_per_epoch(clock: &Clock, ctx: &mut TxContext):bool{
