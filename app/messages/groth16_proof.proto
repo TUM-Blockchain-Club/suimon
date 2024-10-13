@@ -1,0 +1,15 @@
+syntax = "proto3";
+package groth16_proof;
+
+// [DART-SIGNAL]
+message ProofInput {
+  uint64 a = 1;
+  uint64 b = 2;
+}
+
+// [RUST-SIGNAL]
+message ProofOutput {
+  string verifying_key = 1;
+  string proof = 2;
+  string public_inputs = 3;
+}
