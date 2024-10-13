@@ -1,5 +1,5 @@
-library common;
+library style;
 
 export 'constants.dart';
 export 'colors.dart';
-export 'textStyles.dart';
+export 'text.dart';
