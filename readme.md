@@ -5,7 +5,7 @@
 * Project name: Suimon
 * Date: 2024
 * Participants: Sparsh, Mo, Gopi, Lucas, Lukas
-* Description: Suimon is a location-based collectible trading card game (TCG) built on the Sui blockchain, where users can explore their surroundings to discover and collect unique creatures called Suimon.
+* Description: Suimon is a location-based collectible trading card game (TCG) built on the Sui blockchain, where users can explore their surroundings to discover and collect unique creatures called Suimon. Created as the TUM Blockchain Club hackathon project @ [Sui x BSA Hackathon V2](https://bsaepfl.ch/hackathon/).
 
 ## Table of Contents
 

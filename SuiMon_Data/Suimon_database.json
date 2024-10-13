@@ -1,5 +1,6 @@
 [
     {
+        "id": 0,
         "name": "Capy",
         "type": ["Water"],
         "rarity": ["Common"],
@@ -19,9 +20,12 @@
             }
         ],
         "fusionTarget": "Drago Sui",
-        "fusionPartners": ["Suimander"]
+        "fusionTargetId": 14,
+        "fusionPartners": ["Suimander"],
+        "imageLink": "Capy.jpg"
     },
     {
+        "id": 1,
         "name": "Suimander",
         "type": ["Fire"],
         "rarity": ["Rare"],
@@ -41,9 +45,12 @@
             }
         ],
         "fusionTarget": "Drago Sui",
-        "fusionPartners": ["Capy"]
+        "fusionTargetId": 14,
+        "fusionPartners": ["Capy"],
+        "imageLink": "Suimander.jpg"
     },
     {
+        "id": 2,
         "name": "Chickpea",
         "type": ["Grass"],
         "rarity": ["Common"],
@@ -63,9 +70,12 @@
             }
         ],
         "fusionTarget": "Sui Snake",
-        "fusionPartners": ["Suiqer"]
+        "fusionTargetId": 12,
+        "fusionPartners": ["Suiqer"],
+        "imageLink": "Chickpea.jpg"
     },
     {
+        "id": 3,
         "name": "Suiqer",
         "type": ["Water"],
         "rarity": ["Common"],
@@ -85,9 +95,12 @@
             }
         ],
         "fusionTarget": "Sui Snake",
-        "fusionPartners": ["Chickpea"]
+        "fusionTargetId": 12,
+        "fusionPartners": ["Chickpea"],
+        "imageLink": "Suiqer.jpg"
     },
     {
+        "id": 4,
         "name": "Embermoth",
         "type": ["Fire"],
         "rarity": ["Common"],
@@ -107,9 +120,12 @@
             }
         ],
         "fusionTarget": "Emberwing",
-        "fusionPartners": ["Flickerwing"]
+        "fusionTargetId": 13,
+        "fusionPartners": ["Flickerwing"],
+        "imageLink": "Embermoth.jpg"
     },
     {
+        "id": 5,
         "name": "Starporcupine",
         "type": ["Earth"],
         "rarity": ["Rare"],
@@ -129,9 +145,12 @@
             }
         ],
         "fusionTarget": "Terraquill",
-        "fusionPartners": ["Quitten"]
+        "fusionTargetId": 15,
+        "fusionPartners": ["Quitten"],
+        "imageLink": "Starporcupine.jpg"
     },
     {
+        "id": 6,
         "name": "Finflopper",
         "type": ["Water"],
         "rarity": ["Common"],
@@ -151,9 +170,12 @@
             }
         ],
         "fusionTarget": "Finlord",
-        "fusionPartners": ["Sui Snake"]
+        "fusionTargetId": 18,
+        "fusionPartners": ["Sui Snake"],
+        "imageLink": "Finflopper.jpg"
     },
     {
+        "id": 7,
         "name": "Sprouthen",
         "type": ["Grass"],
         "rarity": ["Common"],
@@ -173,9 +195,12 @@
             }
         ],
         "fusionTarget": "Florapin",
-        "fusionPartners": ["Grasshopper", "Buzzbee"]
+        "fusionTargetId": 16,
+        "fusionPartners": ["Grasshopper", "Buzzbee"],
+        "imageLink": "Sprouthen.jpg"
     },
     {
+        "id": 8,
         "name": "Grasshopper",
         "type": ["Grass"],
         "rarity": ["Common"],
@@ -195,9 +220,12 @@
             }
         ],
         "fusionTarget": "Florapin",
-        "fusionPartners": ["Sprouthen", "Buzzbee"]
+        "fusionTargetId": 16,
+        "fusionPartners": ["Sprouthen", "Buzzbee"],
+        "imageLink": "Grasshopper.jpg"
     },
     {
+        "id": 9,
         "name": "Buzzbee",
         "type": ["Grass"],
         "rarity": ["Common"],
@@ -217,9 +245,12 @@
             }
         ],
         "fusionTarget": "Florapin",
-        "fusionPartners": ["Sprouthen", "Grasshopper"]
+        "fusionTargetId": 16,
+        "fusionPartners": ["Sprouthen", "Grasshopper"],
+        "imageLink": "Buzzbee.jpg"
     },
     {
+        "id": 10,
         "name": "Flickerwing",
         "type": ["Fire"],
         "rarity": ["Rare"],
@@ -239,9 +270,12 @@
             }
         ],
         "fusionTarget": "Emberwing",
-        "fusionPartners": ["Embermoth"]
+        "fusionTargetId": 13,
+        "fusionPartners": ["Embermoth"],
+        "imageLink": "Flickerwing.jpg"
     },
     {
+        "id": 11,
         "name": "Quitten",
         "type": ["Earth"],
         "rarity": ["Common"],
@@ -261,9 +295,12 @@
             }
         ],
         "fusionTarget": "Terraquill",
-        "fusionPartners": ["Starporcupine"]
+        "fusionTargetId": 15,
+        "fusionPartners": ["Starporcupine"],
+        "imageLink": "Quitten.jpg"
     },
     {
+        "id": 12,
         "name": "Sui Snake",
         "type": ["Water"],
         "rarity": ["Epic"],
@@ -284,9 +321,12 @@
         ],
         "fusionMaterial": ["Chickpea", "Suiqer"],
         "fusionTarget": "Finlord",
-        "fusionPartners": ["Finflopper"]
+        "fusionTargetId": 18,
+        "fusionPartners": ["Finflopper"],
+        "imageLink": "Sui_Snake.jpg"
     },
     {
+        "id": 13,
         "name": "Emberwing",
         "type": ["Fire"],
         "rarity": ["Epic"],
@@ -305,9 +345,11 @@
                 "accuracy": 90
             }
         ],
-        "fusionMaterial": ["Embermoth", "Flickerwing"]
+        "fusionMaterial": ["Embermoth", "Flickerwing"],
+        "imageLink": "Emberwing.jpg"
     },
     {
+        "id": 14,
         "name": "Drago Sui",
         "type": ["Fire"],
         "rarity": ["Epic"],
@@ -326,9 +368,11 @@
                 "accuracy": 80
             }
         ],
-        "fusionMaterial": ["Capy", "Suimander"]
+        "fusionMaterial": ["Capy", "Suimander"],
+        "imageLink": "Drago_Sui.jpg"
     },
     {
+        "id": 15,
         "name": "Terraquill",
         "type": ["Earth"],
         "rarity": ["Epic"],
@@ -349,9 +393,12 @@
         ],
         "fusionMaterial": ["Starporcupine", "Quitten"],
         "fusionTarget": "Floraking",
-        "fusionPartners": ["Florapin"]
+        "fusionTargetId": 17,
+        "fusionPartners": ["Florapin"],
+        "imageLink": "Terraquill.jpg"
     },
     {
+        "id": 16,
         "name": "Florapin",
         "type": ["Grass"],
         "rarity": ["Epic"],
@@ -372,9 +419,12 @@
         ],
         "fusionMaterial": ["Sprouthen", "Grasshopper", "Buzzbee"],
         "fusionTarget": "Floraking",
-        "fusionPartners": ["Terraquill"]
+        "fusionTargetId": 17,
+        "fusionPartners": ["Terraquill"],
+        "imageLink": "Florapin.jpg"
     },
     {
+        "id": 17,
         "name": "Floraking",
         "type": ["Grass"],
         "rarity": ["Legendary"],
@@ -393,9 +443,11 @@
                 "accuracy": 90
             }
         ],
-        "fusionMaterial": ["Florapin", "Terraquill"]
+        "fusionMaterial": ["Florapin", "Terraquill"],
+        "imageLink": "Floraking.jpg"
     },
     {
+        "id": 18,
         "name": "Finlord",
         "type": ["Water"],
         "rarity": ["Legendary"],
@@ -414,6 +466,7 @@
                 "accuracy": 80
             }
         ],
-        "fusionMaterial": ["Finflopper", "Sui Snake"]
+        "fusionMaterial": ["Finflopper", "Sui Snake"],
+        "imageLink": "Finlord.jpg"
     }
 ]
