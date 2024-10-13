@@ -128,8 +128,8 @@ module suimon::suimon {
                 description: utf8(
                     b"Loves to swim and play in water. It is very social and often found in groups. Capy is known for its calm and friendly nature."
                 ),
-                url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                url: sui::url::new_unsafe(  
+                    utf8(b"https://imgur.com/jxIXCSs").to_ascii()
                 ),
                 rarity: 1,
                 fusion_partner: 1,
@@ -143,7 +143,7 @@ module suimon::suimon {
                     b"Its long body burns with a bright flame. Suimander is agile and quick. It can withstand high temperatures and loves basking in the sun or bathing in magma."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/kzXfKYw").to_ascii()
                 ),
                 rarity: 1,
                 fusion_partner: 1,
@@ -157,7 +157,7 @@ module suimon::suimon {
                     b"It loves sprinting rapidly through grass fields in sunlight. Chickpea is resilient and can thrive in various environments. It has a vibrant green plumage that attracts the bugs that it eats."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/BU03t7L").to_ascii()
                 ),
                 rarity: 1,
                 fusion_partner: 1,
@@ -171,7 +171,7 @@ module suimon::suimon {
                     b"Excellent at diving and catching fish. Suiqer is playful and enjoys splashing around. It has a keen sense of direction and rarely gets lost, alerting its mother to its location with a distinctive squeak if it ever does."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/eesVexI").to_ascii()
                 ),
                 rarity: 1,
                 fusion_partner: 1,
@@ -185,7 +185,7 @@ module suimon::suimon {
                     b"Its wings glow with fiery patterns. Embermoth is nocturnal and is attracted to light. It can ignite its fur to ward off predators."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/K7UowwF").to_ascii()
                 ),
                 rarity: 1,
                 fusion_partner: 1,
@@ -199,7 +199,7 @@ module suimon::suimon {
                     b"Its quills are as hard as rocks. Starporcupine is very defensive and uses its quills to protect itself. It can roll into a ball to move quickly."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/ZpN0I6I").to_ascii()
                 ),
                 rarity: 3,
                 fusion_partner: 1,
@@ -213,7 +213,7 @@ module suimon::suimon {
                     b"Finflopper is known for its playful nature. It can jump out of water to catch insects but often gets stuck on land. When out of its element, it flops around energetically, unable to move until it finds water again."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/AQIulVm").to_ascii()
                 ),
                 rarity: 1,
                 fusion_partner: 1,
@@ -227,7 +227,7 @@ module suimon::suimon {
                     b"It grows large broad leaves that can slap enemies with surprising force. Sprouthen is very resilient and can regrow its leaves quickly. It thrives in sunny environments."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/mII4Hqn").to_ascii()
                 ),
                 rarity: 1,
                 fusion_partner: 1,
@@ -241,7 +241,7 @@ module suimon::suimon {
                     b"Grasshopper is very agile and can evade attacks easily. It feeds on leaves and plants, but enjoys hunting other Suimon for the thrill of the chase."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/lgx6CCd").to_ascii()
                 ),
                 rarity: 1,
                 fusion_partner: 1,
@@ -255,7 +255,7 @@ module suimon::suimon {
                     b"It collects nectar to make honey. Buzzbee is very industrious and works tirelessly. It has a strong sense of community and protects its hive."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/s4lJGPO").to_ascii()
                 ),
                 rarity: 1,
                 fusion_partner: 1,
@@ -269,7 +269,7 @@ module suimon::suimon {
                     b"Its wings flicker with dazzling light that absorbs luminescence from light sources. Flickerwing is very delicate and shy in nature, preferring to be solitary as long is it has a heat source nearby."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/9MmFw4c").to_ascii()
                 ),
                 rarity: 3,
                 fusion_partner: 1,
@@ -283,7 +283,7 @@ module suimon::suimon {
                     b"Its whiskers can sense vibrations in the ground. Quitten is very curious and agile. It can dig small holes to hide or find food."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/WLp8Iei").to_ascii()
                 ),
                 rarity: 1,
                 fusion_partner: 1,
@@ -297,7 +297,7 @@ module suimon::suimon {
                     b"It can move swiftly in water and on land. Sui Snake is very stealthy and can blend into seaweed patches as it hunts. It has a venomous bite that can paralyze its prey."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/BNQnpZW").to_ascii()
                 ),
                 rarity: 4,
 
@@ -312,7 +312,7 @@ module suimon::suimon {
                     b"Its wings crackle with burning energy. Emberwing is very fast and can create small firestorms. It is known for its fierce and aggressive nature."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/dIhDRUD").to_ascii()
                 ),
                 rarity: 4,
                 fusion_partner: 1,
@@ -326,7 +326,7 @@ module suimon::suimon {
                     b"It has immense power and wisdom. Drago Sui is revered by many for its strength. It can create powerful tremors and cause eruptions, but usually spends its time sleeping in active volcanos."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/4i6ZLpF").to_ascii()
                 ),
                 rarity: 4,
                 fusion_partner: 1,
@@ -340,7 +340,7 @@ module suimon::suimon {
                     b"It can dig massive ravines around its opponents to attack. Terraquill's tail is very sturdy and can withstand great force. It uses the densely packed quill-like fur on its tail to sense tremors and protect its back as it digs."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/Vp1eY8X").to_ascii()
                 ),
                 rarity: 3,
                 fusion_partner: 1,
@@ -354,7 +354,7 @@ module suimon::suimon {
                     b"Florapin is revered for its regenerative abilities and the vibrant flowers that bloom from its back. Its very presence nourishes the soil around it, allowing life to thrive wherever it goes."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/0qEOPdk").to_ascii()
                 ),
                 rarity: 5,
                 fusion_partner: 1,
@@ -368,7 +368,7 @@ module suimon::suimon {
                     b"It commands the flora and fauna, even the most wild of beasts submitting to its rule. Floraking is very wise and respected by all. It can create lush forests and fertile lands wherever it goes."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/jZ6TjjN").to_ascii()
                 ),
                 rarity: 5,
                 fusion_partner: 1,
@@ -382,7 +382,7 @@ module suimon::suimon {
                     b"With origins as a small guppy, it rules the oceans benevolently despite its titanic form. Finlord is very powerful and can create massive waves. It is revered by all sea creatures and commands respect."
                 ),
                 url: sui::url::new_unsafe(
-                    utf8(b"https://www.google.com").to_ascii()
+                    utf8(b"https://imgur.com/9IgHWps").to_ascii()
                 ),
                 rarity: 5,
                 fusion_partner: 1,
