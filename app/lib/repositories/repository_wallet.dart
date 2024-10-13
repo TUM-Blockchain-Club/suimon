@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:sui/constants.dart';
 import 'package:sui/sui.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -29,10 +28,11 @@ class WalletRepository {
     var privateKey = prefs.getString(_kWallet);
     if (privateKey != null) {
       _account = SuiAccount.fromPrivateKey(privateKey, SignatureScheme.Ed25519);
-      _client = SuiClient(SuiUrls.devnet, account: _account);
+      print(account.getAddress());
+      _client = SuiClient(SuiUrls.testnet, account: _account);
     } else {
       _account = SuiAccount.ed25519Account();
-      _client = SuiClient(SuiUrls.devnet, account: _account);
+      _client = SuiClient(SuiUrls.testnet, account: _account);
       await prefs.setString(_kWallet, _account.privateKey());
     }
     // await requestFaucet();
@@ -46,7 +46,7 @@ class WalletRepository {
     var res = await _client.getBalance(account.getAddress());
     var balance = res.totalBalance;
     if (balance <= BigInt.zero) {
-      final faucet = FaucetClient(SuiUrls.faucetDev);
+      final faucet = FaucetClient(SuiUrls.faucetTest);
       await faucet.requestSuiFromFaucetV1(account.getAddress());
     }
   }

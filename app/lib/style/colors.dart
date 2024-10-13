@@ -10,7 +10,16 @@ class Colors {
 
   static const Color background = Color(0xFF222527);
   static const Color surface = Color(0xFFFFFFFF);
-  static const Color error = Color(0xFFB00020);
+
+  static const Color interactive = Color(0xFF2979FF);
+  static const Color negative = Color(0xFFB00020);
+  static const Color positive = Color(0xFF00C853);
+  static const Color warning = Color(0xFFFFAB00);
+
+  static const Color onInteractive = Color(0xFFFFFFFF);
+  static const Color onNegative = Color(0xFFFFFFFF);
+  static const Color onPositive = Color(0xFFFFFFFF);
+  static const Color onWarning = Color(0xFF000000);
 
   static const Color onPrimary = Color(0xFFFFFFFF);
   static const Color onSecondary = Color(0xFF000000);
