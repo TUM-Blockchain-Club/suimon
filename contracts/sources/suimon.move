@@ -56,7 +56,13 @@ module suimon::suimon {
         monID2: Option<Suimon>,
         owner1: address,
         owner2: address,
-        // since: u64,
+    }
+    public struct Evolution has key, store{
+        id: UID,
+        fusionP1: Suimon,
+        fusionP2: Suimon,
+        fusion_target: u64,
+        fusion_partners: vector<u64>,
     }
     fun init(ctx: &mut TxContext) {
         let battleParties = BattleParties{
@@ -65,14 +71,14 @@ module suimon::suimon {
             monID2: option::none(),
             owner1: @0x0,
             owner2: @0x0,
-            // since: 0,
         };
         setupTable(ctx);
         transfer::public_share_object(battleParties);
     }
+
     
     // Part 2: struct definitions
-    fun check_proof(monId:u64,clock:&Clock,epoch:Epoch, _proof_bytes: vector<u8>, nonce: u64, r: &Random, ctx: &mut TxContext): bool {
+    fun check_proof(monId:u64,clock:&Clock,epoch: &Epoch, _proof_bytes: vector<u8>, nonce: u64, r: &Random, ctx: &mut TxContext): bool {
         let mut generator = random::new_generator(r, ctx);
         let seed;
         if (epoch.timestamp + 86400000 < clock::timestamp_ms(clock)) {
@@ -88,7 +94,6 @@ module suimon::suimon {
         vector::append(&mut input_bytes, seed_bytes);
         vector::append(&mut input_bytes, nonce_bytes);
         vector::append(&mut input_bytes, monId_bytes);
-        
         // let empty_bytes = vector::empty();
         // let appended_byte    = vector::append(&nonce_bytes, &monId_bytes);
         // let input_bytes = vector::append(&seed, &appended_bytes);
@@ -146,7 +151,7 @@ module suimon::suimon {
         (current_time_ms - epoch_start_timestamp_ms) > 43200000
     }
     
-    public entry fun mint(clock: &Clock,epoch:Epoch, suimonTable: &SuimonTable ,r: &Random, monId: u64, proof: vector<u8>, nonce: u64, ctx: &mut TxContext) {
+    entry fun mint(clock: &Clock, epoch: &mut Epoch, suimonTable: &SuimonTable, r: &Random, monId: u64, proof: vector<u8>, nonce: u64, ctx: &mut TxContext) {
         let table = suimonTable.table;
         if (monId < vector::length(&table)) {
             if (check_max_per_epoch(clock, ctx)) {
@@ -165,29 +170,28 @@ module suimon::suimon {
             };
             transfer::public_transfer(suimon, tx_context::sender(ctx));
             
-            // let lastSeed.mints = lastSeed.mints + 1;
-            
+            epoch.mints = epoch.mints + 1;
         }
         }
     }
     }
-    // public fun evolve(fusionP1: Suimon, fusionP2: Suimon, proof: u64, ctx: &mut TxContext){
-    //     let table = suimonTable.table;
-    //     let targetMetaData = *vector::borrow(&table, monID1);
-    //     let fusion_target = targetMetaData.fusion_target;
-    //     let fusion_partners = targetMetaData.fusion_partners;
-    //     //call mint on each fusion partner
-    //     let mut i = 0;
-    //     let len = vector::length(&fusion_partners);
-    //     while (i < len) {
-    //         let partner = vector::borrow(&fusion_partners, i);
-    //         // burn(partner,proof, ctx);
-    //         i = i + 1;
-    //     };
-    //     burn(monID, proof, ctx);
-    //     //call mint on fusion target
-    //     mint(fusion_target,proof, ctx);
-    // }
+    public fun evolve(fusionP1: Suimon, fusionP2: Suimon, proof: u64, ctx: &mut TxContext){
+        let table = suimonTable.table;
+        let targetMetaData = *vector::borrow(&table, monID1);
+        let fusion_target = targetMetaData.fusion_target;
+        let fusion_partners = targetMetaData.fusion_partners;
+        //call mint on each fusion partner
+        let mut i = 0;
+        let len = vector::length(&fusion_partners);
+        while (i < len) {
+            let partner = vector::borrow(&fusion_partners, i);
+            // burn(partner,proof, ctx);
+            i = i + 1;
+        };
+        burn(monID, proof, ctx);
+        //call mint on fusion target
+        mint(fusion_target,proof, ctx);
+    }
     fun battle(r: &Random , bp: &mut BattleParties, ctx: &mut TxContext){
         let mut generator = random::new_generator(r,ctx );
         let mon1 = bp.monID1.extract();
@@ -207,21 +211,15 @@ module suimon::suimon {
     public fun free(monID: u64,ctx: &mut TxContext){
     }
     entry fun ready_to_battle(clock: &Clock,battleParties:&mut BattleParties,suimon: Suimon, random: &Random, ctx: &mut TxContext){
-        // let current_time = clock::timestamp_ms(clock);
-        // if (current_time - battleParties.since > 10000) {
-        //     battleParties.since = current_time;
-        // }
         if (option::is_none(&battleParties.monID1)) {
             battleParties.monID1.fill(suimon);
             battleParties.owner1 = ctx.sender();
-            // battleParties.since = current_time;
         } else {
             battleParties.monID2.fill(suimon);
             battleParties.owner2 = ctx.sender();
             battle(random, battleParties, ctx);
             battleParties.owner1 = @0x0;
             battleParties.owner2 = @0x0;
-            // battleParties.monID1 = option::none();
         };
     }
     public fun transfer (suimon: Suimon, recipient: address, ctx: &mut TxContext){
