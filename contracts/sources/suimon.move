@@ -7,7 +7,7 @@ module suimon::suimon {
     use sui::package::{Self, Publisher};
     use std::debug;
     use sui::url::{Self, Url};
-    use sui::clock::{Self,Clock};
+    use sui::clock::{Self, Clock};
     use 0x1::bcs;
 
     public struct Suimon has key, store {
@@ -20,13 +20,13 @@ module suimon::suimon {
         rarity: u8,
     }
 
-    public struct Suimons has key, store{
+    public struct Suimons has key, store {
         // a data structure that holds all the suimons, it is needed for burning and minting through the evolve function
         id: UID,
-        minted_per_epoch: table::Table<u64,u64>,
+        minted_per_epoch: table::Table<u64, u64>,
     }
 
-    public struct SuimonType has copy, drop, store{
+    public struct SuimonType has copy, drop, store {
         number: u64,
         name: String,
         description: String,
@@ -56,7 +56,7 @@ module suimon::suimon {
         owner2: address,
     }
 
-    public struct Evolution has key, store{
+    public struct Evolution has key, store {
         id: UID,
         fusionP1: Suimon,
         fusionP2: Suimon,
@@ -74,22 +74,29 @@ module suimon::suimon {
         setupTable(ctx);
         transfer::public_share_object(battleParties);
     }
-    
+
     // Part 2: struct definitions
-    fun check_proof(monId: u64, clock: &Clock, epoch: &mut Epoch, _proof_bytes: vector<u8>, nonce: u64, r: &Random, ctx: &mut TxContext): bool {
+    fun check_proof(
+        monId: u64,
+        clock: &Clock,
+        epoch: &mut Epoch,
+        _proof_bytes: vector<u8>,
+        nonce: u64,
+        r: &Random,
+        ctx: &mut TxContext
+    ): bool {
         let mut generator = random::new_generator(r, ctx);
         let seed;
         if (epoch.timestamp + 86400000 < clock::timestamp_ms(clock)) {
             seed = epoch.seed;
-        }
-        else{
+        } else {
             seed = random::generate_u64(&mut generator);
             epoch.seed = seed;
         };
         let nonce_bytes = bcs::to_bytes(&nonce);
         let monId_bytes = bcs::to_bytes(&monId);
         let seed_bytes = bcs::to_bytes(&seed);
-        let mut input_bytes  = vector::empty<u8>();
+        let mut input_bytes = vector::empty<u8>();
         vector::append(&mut input_bytes, seed_bytes);
         vector::append(&mut input_bytes, nonce_bytes);
         vector::append(&mut input_bytes, monId_bytes);
@@ -104,30 +111,55 @@ module suimon::suimon {
         let pvk = groth16::prepare_verifying_key(&groth16::bn254(), &verify_key);
         let proof = groth16::proof_points_from_bytes(proof_bytes);
         let inputs = groth16::public_proof_inputs_from_bytes(input_bytes);
-        groth16::verify_groth16_proof(&groth16::bn254(), &pvk, &inputs, &proof)
+        groth16::verify_groth16_proof(
+            &groth16::bn254(),
+            &pvk,
+            &inputs,
+            &proof
+        )
     }
 
     public fun setupTable(ctx: &mut TxContext) {
         let string: String = utf8(b"google");
         let image_link = sui::url::new_unsafe(string.to_ascii());
-            
+
         let suimonTable = vector<SuimonType>[
-            SuimonType { number: 1, name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
-            image: image_link, rarity: 1,
-            fusion_partners: vector<u64>[],
-            fusion_target: 0},
-            SuimonType { number: 2, name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
-            image: image_link, rarity: 1,
-            fusion_partners: vector<u64>[],
-            fusion_target: 0},
-            SuimonType { number: 3, name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
-            image: image_link, rarity: 1,
-            fusion_partners: vector<u64>[],
-            fusion_target: 0},
-            SuimonType { number: 4, name: utf8(b"Suimon"), description: utf8(b"A cute little creature"),
-            image: image_link, rarity: 1,
-            fusion_partners: vector<u64>[],
-            fusion_target: 0},
+            SuimonType {
+                number: 1,
+                name: utf8(b"Suimon"),
+                description: utf8(b"A cute little creature"),
+                image: image_link,
+                rarity: 1,
+                fusion_partners: vector<u64>[],
+                fusion_target: 0
+            },
+            SuimonType {
+                number: 2,
+                name: utf8(b"Suimon"),
+                description: utf8(b"A cute little creature"),
+                image: image_link,
+                rarity: 1,
+                fusion_partners: vector<u64>[],
+                fusion_target: 0
+            },
+            SuimonType {
+                number: 3,
+                name: utf8(b"Suimon"),
+                description: utf8(b"A cute little creature"),
+                image: image_link,
+                rarity: 1,
+                fusion_partners: vector<u64>[],
+                fusion_target: 0
+            },
+            SuimonType {
+                number: 4,
+                name: utf8(b"Suimon"),
+                description: utf8(b"A cute little creature"),
+                image: image_link,
+                rarity: 1,
+                fusion_partners: vector<u64>[],
+                fusion_target: 0
+            },
         ];
 
         let table = SuimonTable {
@@ -137,40 +169,66 @@ module suimon::suimon {
 
         transfer::public_freeze_object(table)
     }
-    public fun check_max_per_epoch(clock: &Clock, ctx: &mut TxContext):bool{
+
+    public fun check_max_per_epoch(clock: &Clock, ctx: &mut TxContext): bool {
         //checks that the max mint per epoch is not exceeded
         //86400000.0 is 24 hours in milliseconds
         //epoch changes every 12 hours
         let epoch_start_timestamp_ms = tx_context::epoch_timestamp_ms(ctx);
         // let current_epoch = tx_context::epoch(ctx);
         let current_time_ms = clock::timestamp_ms(clock);
-        (current_time_ms - epoch_start_timestamp_ms) > 43200000
+        (
+            current_time_ms - epoch_start_timestamp_ms
+        ) > 43200000
     }
-    
-    entry fun mint(clock: &Clock, epoch: &mut Epoch, suimonTable: &SuimonTable, r: &Random, monId: u64, proof: vector<u8>, nonce: u64, ctx: &mut TxContext) {
+
+    entry fun mint(
+        clock: &Clock,
+        epoch: &mut Epoch,
+        suimonTable: &SuimonTable,
+        r: &Random,
+        monId: u64,
+        proof: vector<u8>,
+        nonce: u64,
+        ctx: &mut TxContext
+    ) {
         let table = suimonTable.table;
         if (monId < vector::length(&table)) {
             if (check_max_per_epoch(clock, ctx)) {
-            let suimonType = *vector::borrow(&table, monId);
-            //check proof
-            if(check_proof(monId, clock, epoch, proof,nonce, r, ctx )){
-                let suimon = Suimon {
-                    id: object::new(ctx),
-                    number: suimonType.number,
-                    name: suimonType.name,
-                    description: suimonType.description,
-                    image: suimonType.image,
-                    max_mint_per_epoch: 10,
-                    rarity: suimonType.rarity,
-                };
-                transfer::public_transfer(suimon, tx_context::sender(ctx));
+                let suimonType = *vector::borrow(&table, monId);
+                //check proof
+                if (check_proof(
+                        monId,
+                        clock,
+                        epoch,
+                        proof,
+                        nonce,
+                        r,
+                        ctx
+                    )) {
+                    let suimon = Suimon {
+                        id: object::new(ctx),
+                        number: suimonType.number,
+                        name: suimonType.name,
+                        description: suimonType.description,
+                        image: suimonType.image,
+                        max_mint_per_epoch: 10,
+                        rarity: suimonType.rarity,
+                    };
+                    transfer::public_transfer(suimon, tx_context::sender(ctx));
 
-                epoch.mints = epoch.mints + 1;
+                    epoch.mints = epoch.mints + 1;
+                }
             }
         }
     }
-    }
-    public fun evolve(fusionP1: Suimon, fusionP2: Suimon, suimonTable: &SuimonTable, ctx: &mut TxContext){
+
+    public fun evolve(
+        fusionP1: Suimon,
+        fusionP2: Suimon,
+        suimonTable: &SuimonTable,
+        ctx: &mut TxContext
+    ) {
         let table = suimonTable.table;
         let targetMetaData = *vector::borrow(&table, fusionP1.number);
         let fusion_target = targetMetaData.fusion_target;
@@ -188,8 +246,13 @@ module suimon::suimon {
         // TODO call mint on fusion target
         // mint(fusion_target, ctx);
     }
-    fun battle(r: &Random , bp: &mut BattleParties, ctx: &mut TxContext){
-        let mut generator = random::new_generator(r,ctx );
+
+    fun battle(
+        r: &Random,
+        bp: &mut BattleParties,
+        ctx: &mut TxContext
+    ) {
+        let mut generator = random::new_generator(r, ctx);
         let mon1 = bp.monID1.extract();
         let mon2 = bp.monID2.extract();
         let rarity1 = mon1.rarity;
@@ -204,9 +267,17 @@ module suimon::suimon {
             transfer::public_transfer(mon2, bp.owner2);
         }
     }
-    public fun free(monID: u64,ctx: &mut TxContext){
+
+    public fun free(monID: u64, ctx: &mut TxContext) {
     }
-    entry fun ready_to_battle(clock: &Clock,battleParties:&mut BattleParties,suimon: Suimon, random: &Random, ctx: &mut TxContext){
+
+    entry fun ready_to_battle(
+        clock: &Clock,
+        battleParties: &mut BattleParties,
+        suimon: Suimon,
+        random: &Random,
+        ctx: &mut TxContext
+    ) {
         if (option::is_none(&battleParties.monID1)) {
             battleParties.monID1.fill(suimon);
             battleParties.owner1 = ctx.sender();
@@ -218,42 +289,53 @@ module suimon::suimon {
             battleParties.owner2 = @0x0;
         };
     }
-    public fun transfer (suimon: Suimon, recipient: address, ctx: &mut TxContext){
+
+    public fun transfer(
+        suimon: Suimon,
+        recipient: address,
+        ctx: &mut TxContext
+    ) {
         transfer::transfer(suimon, recipient);
     }
+
     public fun name(suimon: &Suimon): String {
         suimon.name
     }
+
     public fun description(suimon: &Suimon): String {
         suimon.description
     }
+
     public fun image(suimon: &Suimon): Url {
         suimon.image
     }
+
     public entry fun burn(suimon: Suimon, ctx: &mut TxContext) {
-        let Suimon { id, .. } = suimon;
+        let Suimon {id,..} = suimon;
         object::delete(id);
     }
-     #[test_only]
+
+    #[test_only]
     /// Wrapper of module initializer for testing
     public fun test_init(ctx: &mut TxContext) {
         init(ctx)
     }
-//     // public fun evolve(mut user_collection: vector<UID>): vector<sui::object::UID>  {
-//     //     let mut iter: u64 = 0;
-//     //     let length = std::vector::length(&user_collection);
-//     //     while (iter < length) {
-//     //         let nft = user_collection.pop_back();
-//     //         //burn(nft);
-//     //         iter = iter + 1;
-//     //     }
-//     // }
-     #[test_only]
-     public fun test_endian (ctx: &mut TxContext) {
+
+    //     // public fun evolve(mut user_collection: vector<UID>): vector<sui::object::UID>  {
+    //     //     let mut iter: u64 = 0;
+    //     //     let length = std::vector::length(&user_collection);
+    //     //     while (iter < length) {
+    //     //         let nft = user_collection.pop_back();
+    //     //         //burn(nft);
+    //     //         iter = iter + 1;
+    //     //     }
+    //     // }
+    #[test_only]
+    public fun test_endian(ctx: &mut TxContext) {
 
         let u64_value: u64 = 42;
         let bytes: vector<u8> = bcs::to_bytes(&u64_value);
 
-     }
-         
+    }
+
 }
