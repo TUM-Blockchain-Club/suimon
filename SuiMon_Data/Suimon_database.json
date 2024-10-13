@@ -22,7 +22,7 @@
         "fusionTarget": "Drago Sui",
         "fusionTargetId": 14,
         "fusionPartners": ["Suimander"],
-        "imageLink": "Capy.jpg"
+        "imageLink": "https://imgur.com/jxIXCSs"
     },
     {
         "id": 1,
@@ -47,7 +47,7 @@
         "fusionTarget": "Drago Sui",
         "fusionTargetId": 14,
         "fusionPartners": ["Capy"],
-        "imageLink": "Suimander.jpg"
+        "imageLink": "https://imgur.com/kzXfKYw"
     },
     {
         "id": 2,
@@ -72,7 +72,7 @@
         "fusionTarget": "Sui Snake",
         "fusionTargetId": 12,
         "fusionPartners": ["Suiqer"],
-        "imageLink": "Chickpea.jpg"
+        "imageLink": "https://imgur.com/BU03t7L"
     },
     {
         "id": 3,
@@ -97,7 +97,7 @@
         "fusionTarget": "Sui Snake",
         "fusionTargetId": 12,
         "fusionPartners": ["Chickpea"],
-        "imageLink": "Suiqer.jpg"
+        "imageLink": "https://imgur.com/eesVexI"
     },
     {
         "id": 4,
@@ -122,7 +122,7 @@
         "fusionTarget": "Emberwing",
         "fusionTargetId": 13,
         "fusionPartners": ["Flickerwing"],
-        "imageLink": "Embermoth.jpg"
+        "imageLink": "https://imgur.com/K7UowwF"
     },
     {
         "id": 5,
@@ -147,7 +147,7 @@
         "fusionTarget": "Terraquill",
         "fusionTargetId": 15,
         "fusionPartners": ["Quitten"],
-        "imageLink": "Starporcupine.jpg"
+        "imageLink": "https://imgur.com/ZpN0I6I"
     },
     {
         "id": 6,
@@ -172,7 +172,7 @@
         "fusionTarget": "Finlord",
         "fusionTargetId": 18,
         "fusionPartners": ["Sui Snake"],
-        "imageLink": "Finflopper.jpg"
+        "imageLink": "https://imgur.com/AQIulVm"
     },
     {
         "id": 7,
@@ -197,7 +197,7 @@
         "fusionTarget": "Florapin",
         "fusionTargetId": 16,
         "fusionPartners": ["Grasshopper", "Buzzbee"],
-        "imageLink": "Sprouthen.jpg"
+        "imageLink": "https://imgur.com/mII4Hqn"
     },
     {
         "id": 8,
@@ -222,7 +222,7 @@
         "fusionTarget": "Florapin",
         "fusionTargetId": 16,
         "fusionPartners": ["Sprouthen", "Buzzbee"],
-        "imageLink": "Grasshopper.jpg"
+        "imageLink": "https://imgur.com/lgx6CCd"
     },
     {
         "id": 9,
@@ -247,7 +247,7 @@
         "fusionTarget": "Florapin",
         "fusionTargetId": 16,
         "fusionPartners": ["Sprouthen", "Grasshopper"],
-        "imageLink": "Buzzbee.jpg"
+        "imageLink": "https://imgur.com/s4lJGPO"
     },
     {
         "id": 10,
@@ -272,7 +272,7 @@
         "fusionTarget": "Emberwing",
         "fusionTargetId": 13,
         "fusionPartners": ["Embermoth"],
-        "imageLink": "Flickerwing.jpg"
+        "imageLink": "https://imgur.com/9MmFw4c"
     },
     {
         "id": 11,
@@ -297,7 +297,7 @@
         "fusionTarget": "Terraquill",
         "fusionTargetId": 15,
         "fusionPartners": ["Starporcupine"],
-        "imageLink": "Quitten.jpg"
+        "imageLink": "https://imgur.com/WLp8Iei"
     },
     {
         "id": 12,
@@ -323,7 +323,7 @@
         "fusionTarget": "Finlord",
         "fusionTargetId": 18,
         "fusionPartners": ["Finflopper"],
-        "imageLink": "Sui_Snake.jpg"
+        "imageLink": "https://imgur.com/BNQnpZW"
     },
     {
         "id": 13,
@@ -346,7 +346,7 @@
             }
         ],
         "fusionMaterial": ["Embermoth", "Flickerwing"],
-        "imageLink": "Emberwing.jpg"
+        "imageLink": "https://imgur.com/dIhDRUD"
     },
     {
         "id": 14,
@@ -369,7 +369,7 @@
             }
         ],
         "fusionMaterial": ["Capy", "Suimander"],
-        "imageLink": "Drago_Sui.jpg"
+        "imageLink": "https://imgur.com/4i6ZLpF"
     },
     {
         "id": 15,
@@ -395,7 +395,7 @@
         "fusionTarget": "Floraking",
         "fusionTargetId": 17,
         "fusionPartners": ["Florapin"],
-        "imageLink": "Terraquill.jpg"
+        "imageLink": "https://imgur.com/Vp1eY8X"
     },
     {
         "id": 16,
@@ -421,7 +421,7 @@
         "fusionTarget": "Floraking",
         "fusionTargetId": 17,
         "fusionPartners": ["Terraquill"],
-        "imageLink": "Florapin.jpg"
+        "imageLink": "https://imgur.com/0qEOPdk"
     },
     {
         "id": 17,
@@ -444,7 +444,7 @@
             }
         ],
         "fusionMaterial": ["Florapin", "Terraquill"],
-        "imageLink": "Floraking.jpg"
+        "imageLink": "https://imgur.com/jZ6TjjN"
     },
     {
         "id": 18,
@@ -467,6 +467,6 @@
             }
         ],
         "fusionMaterial": ["Finflopper", "Sui Snake"],
-        "imageLink": "Finlord.jpg"
+        "imageLink": "https://imgur.com/9IgHWps"
     }
 ]
