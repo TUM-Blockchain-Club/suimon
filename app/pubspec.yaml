@@ -40,6 +40,7 @@ dependencies:
   flutter_bloc: ^8.1.6
   bloc: ^8.1.4
   meta: ^1.15.0
+  gradient_borders: ^1.0.1
 
 dev_dependencies:
   flutter_test:

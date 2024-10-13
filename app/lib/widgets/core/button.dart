@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:gradient_borders/gradient_borders.dart';
 import 'package:suimon/style/style.dart' as style;
 
 class Button extends StatefulWidget {
@@ -13,7 +14,7 @@ class Button extends StatefulWidget {
     this.disabled = false,
     this.color = Colors.transparent,
     this.borderRadius = BorderRadius.zero,
-    this.border = BorderSide.none,
+    this.shapeBorder = const RoundedRectangleBorder(),
     this.elevation = 0.0,
     this.scale = true,
     this.hitTestPadding = EdgeInsets.zero,
@@ -23,7 +24,7 @@ class Button extends StatefulWidget {
   final bool disabled;
   final Color color;
   final BorderRadius borderRadius;
-  final BorderSide border;
+  final ShapeBorder shapeBorder;
   final double elevation;
 
   // TODO: Implement hitTestPadding
@@ -73,20 +74,16 @@ class _ButtonState extends State<Button> with SingleTickerProviderStateMixin {
   }
 
   Widget _buildAndroidButton({required Widget content}) {
-    return ClipRRect(
+    return Material(
+      color: widget.color,
       borderRadius: widget.borderRadius,
-      child: Material(
-        color: widget.color,
+      elevation: widget.elevation,
+      child: InkWell(
+        onTap: widget.onTap?.call,
+        onLongPress: widget.onLongPress?.call,
         borderRadius: widget.borderRadius,
-        elevation: widget.elevation,
-        child: InkWell(
-          onTap: widget.onTap?.call,
-          onLongPress: widget.onLongPress?.call,
-          customBorder: RoundedRectangleBorder(
-            borderRadius: widget.borderRadius,
-          ),
-          child: content,
-        ),
+        customBorder: widget.shapeBorder,
+        child: content,
       ),
     );
   }
@@ -130,20 +127,14 @@ class _ButtonState extends State<Button> with SingleTickerProviderStateMixin {
       child: AnimatedBuilder(
         animation: _controller,
         builder: (context, child) => scaleWrapper(
-          content: ClipRRect(
-            borderRadius: widget.borderRadius,
-            child: Material(
-              color: widget.color,
-              borderOnForeground: true,
-              shape: RoundedRectangleBorder(
-                borderRadius: widget.borderRadius,
-                side: widget.border,
-              ),
-              elevation: widget.elevation,
-              child: Opacity(
-                opacity: _opacity.value,
-                child: child,
-              ),
+          content:  Material(
+            color: widget.color,
+            borderOnForeground: true,
+            shape: widget.shapeBorder,
+            elevation: widget.elevation,
+            child: Opacity(
+              opacity: _opacity.value,
+              child: child,
             ),
           ),
         ),
@@ -224,7 +215,8 @@ class StandardButton extends StatelessWidget {
     this.foreground = style.Colors.textButtonCTA,
     this.background = style.Colors.buttonCTA,
     this.padding = const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
-    this.borderRadius = 24.0,
+    this.borderRadius = 0.0,//24.0,
+    this.elevation = 0.0,
     this.axis = Axis.horizontal,
     this.onLongPress,
     this.onTap,
@@ -238,6 +230,7 @@ class StandardButton extends StatelessWidget {
   final Color background;
   final EdgeInsets padding;
   final double borderRadius;
+  final double elevation;
   final Axis axis;
   final VoidCallback? onTap;
   final VoidCallback? onLongPress;
@@ -272,9 +265,16 @@ class StandardButton extends StatelessWidget {
       color: background,
       tooltip: tooltip,
       borderRadius: BorderRadius.circular(borderRadius),
-      border: const BorderSide(
-        color: style.Colors.border,
-        width: 1.0,
+      elevation: elevation,
+      shapeBorder: GradientBoxBorder(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            HSLColor.fromColor(background).withLightness(0.7).toColor(),
+            HSLColor.fromColor(background).withLightness(0.3).toColor(),
+          ],
+        ),
       ),
       content: Padding(
         padding: padding,
@@ -313,9 +313,15 @@ class CircularButton extends StatelessWidget {
     return Button(
       color: style.Colors.element,
       borderRadius: BorderRadius.circular(100.0),
-      border: const BorderSide(
-        color: style.Colors.border,
-        width: 1.0,
+      shapeBorder: GradientBoxBorder(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            HSLColor.fromColor(style.Colors.element).withLightness(0.7).toColor(),
+            HSLColor.fromColor(style.Colors.element).withLightness(0.3).toColor(),
+          ],
+        ),
       ),
       content: SizedBox(
         width: 42.0,

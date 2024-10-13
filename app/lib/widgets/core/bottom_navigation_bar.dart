@@ -39,42 +39,44 @@ class _BottomNavigationBarState extends State<BottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 6.0),
-      decoration: BoxDecoration(
-        color: style.Colors.element,
-        border: Border.all(
-          width: 1.0,
-          style: BorderStyle.solid,
-          color: style.Colors.border,
+      color: Colors.black,
+      child: SafeArea(
+        top: false,
+        child: SizedBox(
+          height: 60.0,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: utils.separate(
+              Container(
+                width: 4.0,
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      style.Colors.grayDark,
+                      style.Colors.black,
+                    ],
+                    stops: [0.0, 1.0],
+                  ),
+                ),
+              ),
+              widget.items.map((item) {
+                bool isSelected = widget.items.indexOf(item) == _selectedIndex;
+                return Expanded(
+                  flex: 1,
+                  child: core.Button(
+                    content: Center(
+                      child: Icon(isSelected ? item.activeIcon : item.icon, size: 38.0),
+                    ),
+                    onTap: () => _onTap(widget.items.indexOf(item)),
+                  ),
+                );
+              },
+            ).toList()),
+          ),
         ),
-        borderRadius: BorderRadius.circular(54.0),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.black12,
-            offset: Offset(0.0, 4.0),
-            blurRadius: 32.0,
-          ),
-          BoxShadow(
-            color: Colors.black12,
-            offset: Offset(0.0, 4.0),
-            blurRadius: 12.0,
-          ),
-        ],
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: utils.space(4.0, widget.items.map((item) {
-          bool isSelected = widget.items.indexOf(item) == _selectedIndex;
-          return core.Button(
-            color: isSelected ? style.Colors.background : style.Colors.element,
-            borderRadius: BorderRadius.circular(24.0),
-            content: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Icon(isSelected ? item.activeIcon : item.icon),
-            ),
-            onTap: () => _onTap(widget.items.indexOf(item)),
-          );
-        }).toList()),
       ),
     );
   }

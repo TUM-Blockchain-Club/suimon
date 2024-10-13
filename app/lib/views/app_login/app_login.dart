@@ -11,6 +11,9 @@ class AppLogin extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Suimon',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+      ),
       debugShowCheckedModeBanner: false,
       home: Material(
         color: style.Colors.background,

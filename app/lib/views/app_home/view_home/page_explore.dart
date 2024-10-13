@@ -8,12 +8,24 @@ class PageExplore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: core.StandardButton(
-        label: 'Mint',
-        icon: Icons.egg_outlined,
-        onTap: () => context.read<SCSuimonRepository>().mint(),
-      ),
+    return Stack(
+      children: [
+        const Center(
+          child: Text('Map'),
+        ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 24.0),
+            child: core.StandardButton(
+              label: 'Start Exploring',
+              icon: Icons.directions_run_outlined,
+              elevation: 24.0,
+              onTap: () => context.read<SCSuimonRepository>().mint(),
+            ),
+          ),
+        )
+      ],
     );
   }
 }

@@ -33,6 +33,9 @@ class _AppHomeState extends State<AppHome> {
       ],
       child: MaterialApp(
         title: 'Suimon',
+        theme: ThemeData(
+          brightness: Brightness.dark,
+        ),
         debugShowCheckedModeBanner: false,
         onGenerateRoute: (settings) {
           switch (settings.name) {

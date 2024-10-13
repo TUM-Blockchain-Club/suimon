@@ -33,39 +33,29 @@ class _ViewHomeState extends State<ViewHome> {
 
   @override
   Widget build(BuildContext context) {
-    final media = MediaQuery.of(context);
     return Material(
       color: style.Colors.background,
-      child: Stack(
+      child: Column(
         children: [
-          _buildContent(),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.only(bottom: 24.0 + media.padding.bottom),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  core.BottomNavigationBar(
-                    items: [
-                      core.BottomNavigationBarItem(
-                        label: 'Explore',
-                        icon: Icons.explore_outlined,
-                        activeIcon: Icons.explore,
-                        onTap: () {},
-                      ),
-                      core.BottomNavigationBarItem(
-                        label: 'Inventory',
-                        icon: Icons.backpack_outlined,
-                        activeIcon: Icons.backpack,
-                        onTap: () {},
-                      ),
-                    ],
-                    onTap: _onSelect,
-                  ),
-                ],
+          Expanded(
+            child: _buildContent(),
+          ),
+          core.BottomNavigationBar(
+            items: [
+              core.BottomNavigationBarItem(
+                label: 'Explore',
+                icon: Icons.explore_outlined,
+                activeIcon: Icons.explore,
+                onTap: () {},
               ),
-            ),
+              core.BottomNavigationBarItem(
+                label: 'Inventory',
+                icon: Icons.backpack_outlined,
+                activeIcon: Icons.backpack,
+                onTap: () {},
+              ),
+            ],
+            onTap: _onSelect,
           ),
         ],
       ),
