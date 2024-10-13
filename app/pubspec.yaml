@@ -46,6 +46,7 @@ dependencies:
   google_maps_flutter: ^2.9.0
   geolocator: ^12.0.0
   rxdart: ^0.28.0
+  poseidon: ^0.0.1
 
 dev_dependencies:
   flutter_test:

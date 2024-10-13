@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:geolocator/geolocator.dart';
+import 'package:poseidon/poseidon/poseidon.dart';
 import 'package:rxdart/rxdart.dart';
 
 class MiningRepository {
@@ -25,6 +26,8 @@ class MiningRepository {
 
   late BehaviorSubject<Position> _locationSubject;
   Stream<Position> get location => _locationSubject.stream;
+
+  StreamSubscription<Position>? _minerLocationSubscription;
 
   // Lifecycle methods --------------------------------------------
 
@@ -127,6 +130,23 @@ class MiningRepository {
     startTracking();
 
     // mining logic
+    _minerLocationSubscription = _locationSubject.listen((Position position) {
+      // convert lat and long which are doubles combined into a big int without rounding
+      BigInt lat = BigInt.from(position.latitude * 1000000);
+
+      for (int i = 0; i < 19; i++) {
+        // pos + seed + suimonId
+        var hash = poseidon([BigInt.from(position.latitude + position.longitude), BigInt.from(123456789), BigInt.from(i)], {
+          'C': ['1'],
+          'M': ['1'],
+        });
+
+        if (hash < BigInt.from(1000000000000000000)) {
+          print('Found a suimon with id $i!');
+          break;
+        }
+      }
+    });
   }
 
   Future<void> stopMining() async {
