@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'suimon.freezed.dart';
+part 'suimon.g.dart';
 
 @freezed
 class Suimon with _$Suimon {
@@ -8,9 +9,11 @@ class Suimon with _$Suimon {
     required int id,
     required String name,
     required String description,
-    required String imageUrl,
-    required int maxMintPerEpoch,
+    required String imageUri,
+    required List<String> type,
     required int difficulty,
-    required List<int> prevolutions,
+    required int maxMintPerEpoch,
   }) = _Suimon;
+
+  factory Suimon.fromJson(Map<String, dynamic> json) => _$SuimonFromJson(json);
 }
